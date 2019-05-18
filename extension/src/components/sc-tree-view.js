@@ -1,15 +1,12 @@
 import { DOM, createClass, createFactory } from "react";
-const { div, button } = DOM;
+const { div, button, span } = DOM;
 import { connect } from "react-redux";
 
-import SCTree from "./stacking-context-tree";
-import SCNodeInfo from "./stacking-context-node-info";
-import SCTreeHeader from "./stacking-context-tree-header";
+import SCTree from "./sc-tree";
+import SCNodeInfo from "./sc-node-info";
 
 const StackingContextTree = createFactory(SCTree);
 const StackingContextNodeInfo = createFactory(SCNodeInfo);
-
-const StackingContextTreeHeader = createFactory(SCTreeHeader);
 
 const StackingContextTreeView = createFactory(
   createClass({
@@ -41,17 +38,46 @@ const StackingContextTreeView = createFactory(
 
       return div(
         { className: "tree-view" },
+
         div(
           { className: "devtools-toolbar" },
-          button({
+          /*button({
             className: buttonClass,
             id: "command-button-pick",
             title: "Select an element on the page",
             onClick: this.props.toggleSelector
-          }),
-          "Stacking Context Tree"
+          }),*/
+          "Stacking Context Tree",
         ),
-        StackingContextTreeHeader(),
+        div(
+          {
+            className: "header"
+          },
+
+          span(
+            {
+              className: "stacking-context-node-context",
+              title: "Is the node in the stacking context?"
+            },
+            "InContext"
+          ),
+
+          span(
+            {
+              className: "stacking-context-node-z",
+              title: "Z-Index value assigned to this node"
+            },
+            "z-index"
+          ),
+
+          span(
+            {
+              className: "stacking-context-node-name",
+              title: "Tree view of the nodes"
+            },
+            "Node"
+          )
+        ),
         StackingContextTree({
           tree,
           expandedNodes,

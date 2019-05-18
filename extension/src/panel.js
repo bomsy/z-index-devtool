@@ -15,8 +15,8 @@ import {
   toggleSelector
 } from "./actions/stacking-context";
 
-import SCTreeView from "./components/stacking-context-tree-view";
-import SCNodeInfo from "./components/stacking-context-node-info";
+import SCTreeView from "./components/sc-tree-view";
+import SCNodeInfo from "./components/sc-node-info";
 const StackingContextTreeView = createFactory(SCTreeView);
 const StackingContextNodeInfo = createFactory(SCNodeInfo);
 

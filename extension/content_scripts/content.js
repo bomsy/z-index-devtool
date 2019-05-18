@@ -323,9 +323,14 @@ port.onMessage.addListener(message => {
       break;
     case "INIT":
       createOverlay();
+      console.log('dfsds');
       break;
     case "DESTROY":
       removeOverlay();
       break;
   }
+});
+
+window.addEventListener('load', function() {
+  getCurrentStackingContextTree("body");
 });

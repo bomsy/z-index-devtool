@@ -11,7 +11,7 @@ const StackingContextNodeInfo = createClass({
         {
           className: "node-info"
         },
-        div({ className: "devtools-toolbar" }, "Stacking Context Node Info"),
+        div({ className: "devtools-toolbar" }, "Node Info"),
         createHeader(),
         getStackingContextInfo(selectedNode)
       );
@@ -54,31 +54,31 @@ function getStackingContextInfo(node) {
     );
   });
   // As a default, display the position and z-index info for all nodes
-  tableRows.push(createTableRow("Z-Index", properties.zindex));
+  tableRows.push(createTableRow("z-index", properties.zindex));
   tableRows.push(createTableRow("Position", properties.position));
-  if (properties.filter !== "none")
+  //if (properties.filter !== "none")
     tableRows.push(createTableRow("Filter", properties.filter));
-  if (properties.mixBlendMode !== "normal")
+  //if (properties.mixBlendMode !== "normal")
     tableRows.push(createTableRow("Mix-Blend-Mode", properties.mixBlendMode));
-  if (properties.opacity !== "1")
+  //if (properties.opacity !== "1")
     tableRows.push(createTableRow("Opacity", properties.opacity));
-  if (properties.perspective !== "none")
+  //if (properties.perspective !== "none")
     tableRows.push(createTableRow("Perspective", properties.perspective));
-  if (properties.transform !== "none")
+  //if (properties.transform !== "none")
     tableRows.push(createTableRow("Transform", properties.transform));
-  if (willChange)
+  //if (willChange)
     tableRows.push(createTableRow("Will-Change", properties.willChange));
-  if (properties.hasTouchOverflowScrolling)
+  //if (properties.hasTouchOverflowScrolling)
     tableRows.push(
       createTableRow(
         "Has Touch Overflow-Scrolling",
-        properties.hasTouchOverflowScrolling
+        `${properties.hasTouchOverflowScrolling}`
       )
     );
-  if (properties.isStacked && properties.isFlexItem)
-    tableRows.push(createTableRow("Is a Flex Item:", properties.isFlexItem));
-  if (properties.isIsolated)
-    tableRows.push(createTableRow("Is Isolated", properties.isIsolated));
+  //if (properties.isStacked && properties.isFlexItem)
+    tableRows.push(createTableRow("Is a Flex Item:", `${properties.isFlexItem}`));
+  //if (properties.isIsolated)
+    tableRows.push(createTableRow("Is Isolated", `${properties.isIsolated}`));
 
   return div({ className: "stacking-context-info-table" }, tableRows);
 }

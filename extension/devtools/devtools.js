@@ -1,4 +1,5 @@
 function onShown() {
+  console.log('show')
   browser.runtime.sendMessage({
     tabId: browser.devtools.inspectedWindow.tabId,
     action: "INIT",
@@ -7,6 +8,7 @@ function onShown() {
 }
 
 function onHidden() {
+  console.log('hide')
   browser.runtime.sendMessage({
     tabId: browser.devtools.inspectedWindow.tabId,
     action: "DESTROY",
@@ -14,7 +16,7 @@ function onHidden() {
   });
 }
 browser.devtools.panels
-  .create("Z Index", "icons/stack.svg", "devtools/panel/panel.html")
+  .create("z-index", "/img/stacks.png", "panel/panel.html")
   .then(panel => {
     panel.onShown.addListener(onShown);
     panel.onHidden.addListener(onHidden);

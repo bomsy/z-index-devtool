@@ -1,5 +1,5 @@
 import { DOM, createClass, createFactory } from "react";
-import SCNode from "./stacking-context-node";
+import SCNode from "./sc-node";
 import _Tree from "./tree";
 
 const { div } = DOM;

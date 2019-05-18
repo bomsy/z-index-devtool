@@ -21,8 +21,8 @@ function fetchNewDomText(url, getText = getTextModule) {
   };
 }
 
-function getStackingContextTree(elememtSelector) {
-  sendMessage("GET_STACKING_CONTEXT_TREE", { selector: elememtSelector });
+function getStackingContextTree(elementSelector) {
+  sendMessage("GET_STACKING_CONTEXT_TREE", { selector: elementSelector });
 }
 
 function addStackingContext(tree, selector) {
